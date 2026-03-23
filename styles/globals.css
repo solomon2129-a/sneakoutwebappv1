@@ -1,0 +1,499 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Reset & Base ─── */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  background-color: #09090B;
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #09090B;
+  color: #FAFAFA;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overscroll-behavior-y: none;
+}
+
+/* ─── Hide scrollbar ─── */
+::-webkit-scrollbar { width: 0; height: 0; }
+* { scrollbar-width: none; }
+
+/* ─── Safe area insets for iOS ─── */
+.safe-bottom {
+  padding-bottom: max(1rem, env(safe-area-inset-bottom));
+}
+.safe-top {
+  padding-top: max(1rem, env(safe-area-inset-top));
+}
+
+/* ─── Utility: Glass card ─── */
+.glass {
+  background: rgba(255, 255, 255, 0.04);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+/* ─── Gradient overlays ─── */
+.img-fade-bottom {
+  background: linear-gradient(to top,
+    rgba(9, 9, 11, 0.95) 0%,
+    rgba(9, 9, 11, 0.4) 45%,
+    transparent 100%
+  );
+}
+
+/* ─── Event card ─── */
+.event-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 20px;
+  background: #111116;
+  border: 1px solid rgba(255, 255, 255, 0.055);
+  box-shadow:
+    0 4px 6px -1px rgba(0, 0, 0, 0.4),
+    0 2px 4px -2px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+/* ─── Pill badge ─── */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.5);
+  color: #FAFAFA;
+}
+
+/* ─── Bottom nav wrapper ─── */
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding-bottom: max(24px, env(safe-area-inset-bottom));
+  background: linear-gradient(
+    to top,
+    rgba(9, 9, 11, 1)    0%,
+    rgba(9, 9, 11, 0.7)  40%,
+    rgba(9, 9, 11, 0)   100%
+  );
+  pointer-events: none;
+}
+
+/* ─── Liquid glass pill ─── */
+.liquid-glass-nav {
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 6px 6px;
+  border-radius: 9999px;
+
+  /* Glass fill: bright top edge fades to deep dark */
+  background:
+    linear-gradient(
+      170deg,
+      rgba(255, 255, 255, 0.16) 0%,
+      rgba(255, 255, 255, 0.06) 35%,
+      rgba(8, 8, 11, 0.78)     100%
+    );
+
+  /* Deep frosted blur */
+  backdrop-filter: blur(40px) saturate(190%) brightness(1.1);
+  -webkit-backdrop-filter: blur(40px) saturate(190%) brightness(1.1);
+
+  /* Border: bright top rim, faint bottom */
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-bottom-color: rgba(255, 255, 255, 0.04);
+
+  /* Shadows: inset top sheen + outer depth + subtle halo */
+  box-shadow:
+    inset 0 1.5px 0   rgba(255, 255, 255, 0.30),
+    inset 0 -1px  0   rgba(0,   0,   0,   0.22),
+    0 12px 48px       rgba(0,   0,   0,   0.65),
+    0  4px 12px       rgba(0,   0,   0,   0.40),
+    0  0   0  0.5px   rgba(255, 255, 255, 0.10);
+}
+
+/* ─── Individual nav items ─── */
+.liquid-nav-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  padding: 10px 32px;
+  border-radius: 9999px;
+  text-decoration: none;
+  min-width: 100px;
+  min-height: 52px;
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.liquid-nav-item:active {
+  transform: scale(0.93);
+  transition: transform 0.1s ease;
+}
+
+/* Active: soft red glass bubble */
+.liquid-nav-item.active {
+  background: linear-gradient(
+    160deg,
+    rgba(220, 38, 38, 0.20) 0%,
+    rgba(220, 38, 38, 0.07) 100%
+  );
+  box-shadow:
+    inset 0 1px 0 rgba(248, 113, 113, 0.22),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.12),
+    0 0 18px rgba(220, 38, 38, 0.14);
+}
+
+/* Icon */
+.liquid-nav-icon {
+  color: rgba(113, 113, 122, 0.80);
+  transition: color 0.2s ease, filter 0.2s ease;
+  line-height: 1;
+}
+
+.liquid-nav-icon.active {
+  color: #f87171;
+  filter: drop-shadow(0 0 6px rgba(248, 113, 113, 0.55));
+}
+
+/* Label */
+.liquid-nav-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(113, 113, 122, 0.70);
+  transition: color 0.2s ease;
+  line-height: 1;
+}
+
+.liquid-nav-label.active {
+  color: #f87171;
+}
+
+/* Active indicator dot */
+.liquid-nav-dot {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #f87171;
+  box-shadow:
+    0 0 6px  rgba(248, 113, 113, 1.0),
+    0 0 12px rgba(248, 113, 113, 0.5);
+}
+
+/* ─── QR Ticket ─── */
+.ticket-body {
+  background: #111116;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 24px;
+  overflow: hidden;
+  position: relative;
+}
+
+.ticket-perforation {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 20px;
+  position: relative;
+}
+
+.ticket-perforation::before,
+.ticket-perforation::after {
+  content: '';
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #09090B;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
+}
+
+.ticket-perforation::before {
+  margin-left: -30px;
+}
+
+.ticket-perforation::after {
+  margin-right: -30px;
+}
+
+.ticket-dash {
+  flex: 1;
+  height: 1px;
+  border-top: 2px dashed rgba(255, 255, 255, 0.1);
+}
+
+/* ─── CSS entrance animations (SSR-safe, no hydration issues) ─── */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadePop {
+  from { opacity: 0; transform: scale(0.93); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.anim-page     { animation: fadeSlideUp  0.3s  ease-out both; }
+.anim-fade-up  { animation: fadeSlideUp  0.38s cubic-bezier(0.25,0.46,0.45,0.94) both; }
+.anim-fade-in  { animation: fadeIn       0.28s ease-out both; }
+.anim-fade-pop { animation: fadePop      0.4s  cubic-bezier(0.34,1.56,0.64,1) both; }
+.anim-slide-in { animation: fadeSlideIn  0.35s ease-out both; }
+
+/* ─── Shimmer skeleton ─── */
+@keyframes shimmer {
+  0%   { background-position: -200% 0; }
+  100% { background-position:  200% 0; }
+}
+.shimmer {
+  background: linear-gradient(90deg, #1a1a1f 25%, #22222a 50%, #1a1a1f 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* ─── Create Event Page ─── */
+
+/* Floating particles */
+.create-particle {
+  position: absolute;
+  background: radial-gradient(circle, rgba(220, 38, 38, 0.8) 0%, rgba(220, 38, 38, 0) 70%);
+  border-radius: 50%;
+  animation: particleFloat linear infinite;
+}
+
+@keyframes particleFloat {
+  0% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  50% {
+    transform: translate(calc(var(--drift, 30px)), -120px) scale(1.5);
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translate(calc(var(--drift, 30px) * -1), -250px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.create-particle:nth-child(odd) { --drift: 40px; }
+.create-particle:nth-child(even) { --drift: -35px; }
+.create-particle:nth-child(3n) {
+  background: radial-gradient(circle, rgba(168, 85, 247, 0.6) 0%, rgba(168, 85, 247, 0) 70%);
+}
+.create-particle:nth-child(5n) {
+  background: radial-gradient(circle, rgba(245, 158, 11, 0.5) 0%, rgba(245, 158, 11, 0) 70%);
+}
+
+/* Ambient glow pulse */
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(1.15); }
+}
+.create-glow-pulse {
+  animation: glowPulse 12s ease-in-out infinite;
+}
+
+/* Native date/time inputs — styled to match dark theme */
+.create-native-input {
+  flex: 1;
+  background: transparent;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  min-height: 24px;
+}
+.create-native-input::-webkit-calendar-picker-indicator {
+  filter: invert(1) brightness(0.6);
+  cursor: pointer;
+  padding: 4px;
+}
+.create-native-input:invalid,
+.create-native-input[value=""] {
+  color: rgba(113, 113, 122, 0.6);
+}
+/* Firefox: style the placeholder-like empty state */
+.create-native-input::-moz-placeholder {
+  color: rgba(113, 113, 122, 0.6);
+}
+
+/* Cover image subtle shine sweep */
+@keyframes coverShine {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+.create-cover-shine::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.04), transparent);
+  animation: coverShine 8s ease-in-out infinite;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Publish button glow */
+.create-publish-glow {
+  box-shadow:
+    0 0 20px rgba(220, 38, 38, 0.25),
+    0 4px 12px rgba(220, 38, 38, 0.2);
+}
+
+/* Success pop animation */
+@keyframes successPop {
+  0%   { transform: scale(0); opacity: 0; }
+  50%  { transform: scale(1.15); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.create-success-pop {
+  animation: successPop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* ─── Splash Screen ─── */
+@keyframes splashLogoPop {
+  0%   { transform: scale(0) rotate(-10deg); opacity: 0; }
+  60%  { transform: scale(1.1) rotate(2deg); }
+  100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+@keyframes splashTextUp {
+  0%   { transform: translateY(20px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+@keyframes splashLoadingBar {
+  0%   { width: 0%; }
+  100% { width: 100%; }
+}
+@keyframes splashGlowPulse {
+  0%, 100% { opacity: 0.15; transform: scale(0.9); }
+  50%      { opacity: 0.3; transform: scale(1.1); }
+}
+
+.splash-logo-pop {
+  animation: splashLogoPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+.splash-text-up {
+  animation: splashTextUp 0.5s ease-out 0.3s both;
+}
+.splash-loading-bar {
+  animation: splashLoadingBar 1.5s ease-in-out 0.2s both;
+}
+.splash-glow-pulse {
+  animation: splashGlowPulse 2s ease-in-out infinite;
+}
+
+/* ─── Input / Button overrides ─── */
+input, button, a {
+  -webkit-tap-highlight-color: transparent;
+  outline: none;
+}
+button:focus-visible {
+  outline: 2px solid #DC2626;
+  outline-offset: 2px;
+}
+
+/* ─── Active press state (replaces Framer whileTap on non-interactive divs) ─── */
+.pressable:active { transform: scale(0.98); transition: transform 0.1s ease; }
+
+/* ─── Red accent utilities (explicit plain CSS — always compiled) ─── */
+
+/* Solid backgrounds */
+.bg-red-500 { background-color: #EF4444; }
+.bg-red-600 { background-color: #DC2626; }
+.bg-red-700 { background-color: #B91C1C; }
+
+/* Opacity-variant backgrounds */
+.bg-red-600\/10 { background-color: rgba(220, 38, 38, 0.10); }
+.bg-red-600\/20 { background-color: rgba(220, 38, 38, 0.20); }
+.bg-red-900\/30 { background-color: rgba(127, 29, 29, 0.30); }
+
+/* Text */
+.text-red-400 { color: #F87171; }
+.text-red-500 { color: #EF4444; }
+
+/* Borders */
+.border-red-600 { border-color: #DC2626; }
+.border-red-600\/20 { border-color: rgba(220, 38, 38, 0.20); }
+.border-red-600\/30 { border-color: rgba(220, 38, 38, 0.30); }
+
+/* Focus variant */
+.focus\:border-red-600:focus { border-color: #DC2626; }
+
+/* Gradients */
+.from-red-600 {
+  --tw-gradient-from: #DC2626;
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(220,38,38,0));
+}
+.from-red-900\/80 {
+  --tw-gradient-from: rgba(127,29,29,0.80);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, rgba(127,29,29,0));
+}
+.to-red-700 { --tw-gradient-to: #B91C1C; }
+.to-red-700\/60 { --tw-gradient-to: rgba(185, 28, 28, 0.60); }
+
+/* Shadows */
+.shadow-red-900\/30 {
+  --tw-shadow-color: rgba(127, 29, 29, 0.30);
+  --tw-shadow: var(--tw-shadow-colored);
+}
+.shadow-red-900\/40 {
+  --tw-shadow-color: rgba(127, 29, 29, 0.40);
+  --tw-shadow: var(--tw-shadow-colored);
+}
