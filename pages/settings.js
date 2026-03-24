@@ -125,7 +125,7 @@ export default function Settings() {
             <SettingRow icon={<BellIcon />} label="Notifications" sublabel="Event reminders, ticket alerts" />
             <SettingRow icon={<MapPinIcon />} label="Location" sublabel="Bangalore, IN" />
             <SettingRow icon={<CreditCardIcon />} label="Payment Methods" sublabel="Add UPI, cards" />
-            <SettingRow icon={<LockIcon />} label="Privacy and Security" />
+            <SettingRow icon={<LockIcon />} label="Privacy and Security" sublabel="Password, account security" href="/privacy-security" />
             <SettingRow icon={<HelpCircleIcon />} label="Help and Support" />
           </div>
         </div>
