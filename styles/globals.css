@@ -409,34 +409,47 @@ body {
 
 /* ─── Splash Screen ─── */
 @keyframes splashLogoPop {
-  0%   { transform: scale(0) rotate(-10deg); opacity: 0; }
-  60%  { transform: scale(1.1) rotate(2deg); }
+  0%   { transform: scale(0) rotate(-12deg); opacity: 0; }
+  50%  { transform: scale(1.08) rotate(1deg); opacity: 1; }
+  70%  { transform: scale(0.97) rotate(0deg); }
   100% { transform: scale(1) rotate(0deg); opacity: 1; }
 }
 @keyframes splashTextUp {
-  0%   { transform: translateY(20px); opacity: 0; }
+  0%   { transform: translateY(24px); opacity: 0; }
   100% { transform: translateY(0); opacity: 1; }
+}
+@keyframes splashTagline {
+  0%   { transform: translateY(16px); opacity: 0; letter-spacing: 0.15em; }
+  100% { transform: translateY(0); opacity: 1; letter-spacing: 0.05em; }
 }
 @keyframes splashLoadingBar {
   0%   { width: 0%; }
+  60%  { width: 70%; }
   100% { width: 100%; }
 }
 @keyframes splashGlowPulse {
-  0%, 100% { opacity: 0.15; transform: scale(0.9); }
-  50%      { opacity: 0.3; transform: scale(1.1); }
+  0%, 100% { opacity: 0.3; transform: translate(-50%, -50%) scale(0.9); }
+  50%      { opacity: 0.6; transform: translate(-50%, -50%) scale(1.15); }
+}
+@keyframes splashBarGlow {
+  0%, 100% { box-shadow: 0 0 8px rgba(220,38,38,0.3); }
+  50%      { box-shadow: 0 0 20px rgba(220,38,38,0.6); }
 }
 
 .splash-logo-pop {
-  animation: splashLogoPop 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  animation: splashLogoPop 0.7s cubic-bezier(0.34, 1.56, 0.64, 1) both;
 }
 .splash-text-up {
-  animation: splashTextUp 0.5s ease-out 0.3s both;
+  animation: splashTextUp 0.5s ease-out 0.4s both;
+}
+.splash-tagline {
+  animation: splashTagline 0.6s ease-out 0.7s both;
 }
 .splash-loading-bar {
-  animation: splashLoadingBar 1.5s ease-in-out 0.2s both;
+  animation: splashLoadingBar 2.2s cubic-bezier(0.4, 0, 0.2, 1) 0.3s both;
 }
 .splash-glow-pulse {
-  animation: splashGlowPulse 2s ease-in-out infinite;
+  animation: splashGlowPulse 2.5s ease-in-out infinite;
 }
 
 /* ─── Input / Button overrides ─── */
