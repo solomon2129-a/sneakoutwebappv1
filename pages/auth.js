@@ -115,14 +115,14 @@ export default function AuthPage() {
 
       <div className="min-h-screen bg-[#09090B] flex flex-col max-w-lg mx-auto px-6">
         {/* Header */}
-        <div className="pt-16 pb-8 text-center anim-fade-up">
-          <div className="w-14 h-14 rounded-2xl bg-red-600 flex items-center justify-center text-white text-2xl font-black shadow-xl shadow-red-900/40 mx-auto mb-5">
+        <div className="pt-12 pb-6 text-center anim-fade-up">
+          <div className="w-11 h-11 rounded-xl bg-red-600 flex items-center justify-center text-white text-lg font-black shadow-xl shadow-red-900/40 mx-auto mb-4">
             S
           </div>
-          <h1 className="text-[28px] font-extrabold text-white tracking-tight mb-2">
+          <h1 className="text-[22px] font-extrabold text-white tracking-tight mb-1.5">
             {isSignUp ? 'Create your account' : 'Welcome back'}
           </h1>
-          <p className="text-zinc-500 text-sm">
+          <p className="text-zinc-500 text-[12px]">
             {isSignUp ? "Join the city's best event platform" : 'Sign in to access your tickets'}
           </p>
         </div>
@@ -134,7 +134,7 @@ export default function AuthPage() {
           <button
             onClick={handleGoogle}
             disabled={submitting}
-            className="w-full flex items-center justify-center gap-3 py-4 rounded-2xl bg-white text-zinc-900 font-semibold text-[15px] shadow-lg disabled:opacity-60 pressable mb-4"
+            className="w-full flex items-center justify-center gap-3 py-3 rounded-2xl bg-white text-zinc-900 font-semibold text-[13px] shadow-lg disabled:opacity-60 pressable mb-4"
           >
             {submitting && tab === 'google' ? <LoadingSpinner /> : <GoogleIcon />}
             Continue with Google
@@ -151,38 +151,38 @@ export default function AuthPage() {
           <form onSubmit={handleEmail} className="space-y-3">
             {isSignUp && (
               <div>
-                <label className="text-zinc-500 text-[12px] font-medium mb-1.5 block">Your name</label>
+                <label className="text-zinc-500 text-[11px] font-medium mb-1.5 block">Your name</label>
                 <input
                   type="text"
                   placeholder="Your full name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full bg-zinc-900 border border-zinc-800 rounded-2xl py-3.5 px-4 text-sm text-white placeholder-zinc-600 focus:border-red-600 transition-colors"
+                  className="w-full bg-zinc-900 border border-zinc-800 rounded-2xl py-2.5 px-4 text-sm text-white placeholder-zinc-600 focus:border-red-600 transition-colors"
                 />
               </div>
             )}
 
             <div>
-              <label className="text-zinc-500 text-[12px] font-medium mb-1.5 block">Email address</label>
+              <label className="text-zinc-500 text-[11px] font-medium mb-1.5 block">Email address</label>
               <input
                 type="email"
                 placeholder="you@example.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="w-full bg-zinc-900 border border-zinc-800 rounded-2xl py-3.5 px-4 text-sm text-white placeholder-zinc-600 focus:border-red-600 transition-colors"
+                className="w-full bg-zinc-900 border border-zinc-800 rounded-2xl py-2.5 px-4 text-sm text-white placeholder-zinc-600 focus:border-red-600 transition-colors"
               />
             </div>
 
             <div>
-              <label className="text-zinc-500 text-[12px] font-medium mb-1.5 block">Password</label>
+              <label className="text-zinc-500 text-[11px] font-medium mb-1.5 block">Password</label>
               <input
                 type="password"
                 placeholder={isSignUp ? 'At least 6 characters' : '••••••••'}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
-                className="w-full bg-zinc-900 border border-zinc-800 rounded-2xl py-3.5 px-4 text-sm text-white placeholder-zinc-600 focus:border-red-600 transition-colors"
+                className="w-full bg-zinc-900 border border-zinc-800 rounded-2xl py-2.5 px-4 text-sm text-white placeholder-zinc-600 focus:border-red-600 transition-colors"
               />
             </div>
 
@@ -198,7 +198,7 @@ export default function AuthPage() {
             <button
               type="submit"
               disabled={submitting}
-              className="w-full py-4 rounded-2xl bg-red-600 text-white font-bold text-[15px] flex items-center justify-center gap-2 shadow-lg shadow-red-900/30 disabled:opacity-60 pressable mt-1"
+              className="w-full py-3 rounded-2xl bg-red-600 text-white font-bold text-[13px] flex items-center justify-center gap-2 shadow-lg shadow-red-900/30 disabled:opacity-60 pressable mt-1"
             >
               {submitting ? <LoadingSpinner /> : null}
               {isSignUp ? 'Create Account' : 'Sign In'}

@@ -9,7 +9,7 @@ import { db } from '../lib/firebase';
 
 const categories = ['All', 'Electronic', 'Live Music', 'Rooftop', 'Networking', 'Rave'];
 
-function SearchIcon({ size = 18 }) {
+function SearchIcon({ size = 16 }) {
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
       <circle cx="11" cy="11" r="8" />
@@ -20,7 +20,7 @@ function SearchIcon({ size = 18 }) {
 
 function BellIcon() {
   return (
-    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
       <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
       <path d="M13.73 21a2 2 0 0 1-3.46 0" />
     </svg>
@@ -96,18 +96,18 @@ export default function Discover() {
 
       <Layout>
         <div className="px-4 pb-36">
-          <div className="h-14" />
+          <div className="h-12" />
 
           {/* ── Header ── */}
-          <div className="flex items-start justify-between mb-6">
+          <div className="flex items-start justify-between mb-4">
             <div>
               <p className="text-zinc-500 text-sm font-medium mb-0.5">Bangalore · This Week</p>
-              <h1 className="text-[32px] font-extrabold text-white leading-none tracking-tight">
+              <h1 className="text-[24px] font-extrabold text-white leading-none tracking-tight">
                 Sneakout
               </h1>
             </div>
             <div className="flex items-center gap-2 mt-1">
-              <button className="w-10 h-10 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 pressable">
+              <button className="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 pressable">
                 <BellIcon />
               </button>
               <div className="pressable" onClick={() => router.push('/profile')}>
@@ -117,7 +117,7 @@ export default function Discover() {
           </div>
 
           {/* ── Search ── */}
-          <div className="relative mb-5">
+          <div className="relative mb-3">
             <div className="absolute left-4 top-1/2 -translate-y-1/2 text-zinc-500 pointer-events-none">
               <SearchIcon />
             </div>
@@ -126,17 +126,17 @@ export default function Discover() {
               placeholder="Search events, venues..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-zinc-900 border border-zinc-800 rounded-2xl py-3 pl-11 pr-4 text-sm text-white placeholder-zinc-600 focus:border-red-600 transition-colors"
+              className="w-full bg-zinc-900 border border-zinc-800 rounded-xl py-2.5 pl-11 pr-4 text-sm text-white placeholder-zinc-600 focus:border-red-600 transition-colors"
             />
           </div>
 
           {/* ── Category pills ── */}
-          <div className="flex gap-2 overflow-x-auto pb-1 -mx-4 px-4 mb-6">
+          <div className="flex gap-2 overflow-x-auto pb-1 -mx-4 px-4 mb-4">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`flex-shrink-0 px-4 py-2 rounded-full text-[13px] font-semibold transition-all duration-200 pressable ${
+                className={`flex-shrink-0 px-3 py-1.5 rounded-full text-[12px] font-semibold transition-all duration-200 pressable ${
                   activeCategory === cat
                     ? 'bg-red-600 text-white shadow-lg shadow-red-900/40'
                     : 'bg-zinc-900 text-zinc-400 border border-zinc-800'
@@ -164,7 +164,7 @@ export default function Discover() {
             </div>
           ) : (
             <div className="flex flex-col items-center justify-center py-20 text-center">
-              <div className="text-zinc-700 mb-4"><SearchIcon size={44} /></div>
+              <div className="text-zinc-700 mb-4"><SearchIcon size={32} /></div>
               <p className="text-zinc-300 font-semibold mb-1">No events found</p>
               <p className="text-zinc-600 text-sm">Try a different search or category</p>
             </div>

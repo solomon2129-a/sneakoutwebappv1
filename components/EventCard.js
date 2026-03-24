@@ -30,7 +30,7 @@ export default function EventCard({ event, index = 0 }) {
   return (
     <div className="anim-fade-up" style={{ animationDelay: (index * 0.07) + 's' }}>
       <Link href={href} className="block event-card pressable">
-        <div className="relative h-52 overflow-hidden">
+        <div className="relative h-40 overflow-hidden">
           <img src={event.image} alt={event.title} className="w-full h-full object-cover" />
           <div className="absolute inset-0 img-fade-bottom" />
 
@@ -48,20 +48,20 @@ export default function EventCard({ event, index = 0 }) {
           )}
         </div>
 
-        <div className="p-4">
-          <h3 className="text-white font-bold text-[17px] leading-snug mb-2.5">{event.title}</h3>
+        <div className="p-3">
+          <h3 className="text-white font-bold text-[14px] leading-snug mb-1.5">{event.title}</h3>
 
-          <div className="flex items-center gap-1.5 text-zinc-400 text-[13px] mb-1.5">
+          <div className="flex items-center gap-1.5 text-zinc-400 text-[11px] mb-1.5">
             <MapPinIcon />
             <span>{event.venue} · {event.location}</span>
           </div>
 
-          <div className="flex items-center gap-1.5 text-zinc-500 text-[13px] mb-4">
+          <div className="flex items-center gap-1.5 text-zinc-500 text-[11px] mb-3">
             <CalendarIcon />
             <span>{event.date} · {event.time}</span>
           </div>
 
-          <span className={'flex items-center justify-center w-full py-3 rounded-xl text-sm font-bold tracking-wide ' + (owned ? 'bg-emerald-600/20 text-emerald-400 border border-emerald-500/30' : 'bg-red-600 text-white')}>
+          <span className={'flex items-center justify-center w-full py-2.5 rounded-xl text-[12px] font-bold tracking-wide ' + (owned ? 'bg-emerald-600/20 text-emerald-400 border border-emerald-500/30' : 'bg-red-600 text-white')}>
             {owned ? 'View My Ticket' : 'Get Ticket'}
           </span>
         </div>

@@ -107,7 +107,7 @@ export default function Landing() {
         <div className="relative z-10 flex flex-col min-h-screen max-w-lg mx-auto w-full px-6">
 
           {/* Top spacer + badge */}
-          <div className="pt-20 flex justify-center">
+          <div className="pt-14 flex justify-center">
             <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-zinc-900/80 border border-zinc-800 text-zinc-400 text-[11px] font-semibold backdrop-blur-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
               Bangalore · Events happening now
@@ -117,30 +117,30 @@ export default function Landing() {
           {/* Main hero */}
           <div className="flex-1 flex flex-col items-center justify-center text-center -mt-8">
             {/* Logo mark */}
-            <div className="mb-6 anim-fade-pop">
-              <div className="w-16 h-16 rounded-2xl bg-red-600 flex items-center justify-center text-white text-3xl font-black shadow-2xl shadow-red-900/50 mx-auto mb-4">
+            <div className="mb-4 anim-fade-pop">
+              <div className="w-11 h-11 rounded-xl bg-red-600 flex items-center justify-center text-white text-xl font-black shadow-2xl shadow-red-900/50 mx-auto mb-3">
                 S
               </div>
             </div>
 
             <div className="anim-fade-up">
-              <h1 className="text-[52px] font-black text-white leading-none tracking-tighter mb-4">
+              <h1 className="text-[36px] font-black text-white leading-none tracking-tighter mb-2">
                 Sneak<span className="text-red-500">out</span>
               </h1>
-              <p className="text-zinc-300 text-[18px] font-medium leading-snug mb-2">
+              <p className="text-zinc-300 text-[15px] font-medium leading-snug mb-1">
                 Find your night out.
               </p>
-              <p className="text-zinc-500 text-[14px] max-w-xs mx-auto leading-relaxed">
+              <p className="text-zinc-500 text-[12px] max-w-xs mx-auto leading-relaxed">
                 Discover underground raves, indie gigs, rooftop sessions & more — all in one place.
               </p>
             </div>
 
             {/* Feature pills */}
-            <div className="flex flex-wrap justify-center gap-2 mt-8 mb-10 anim-fade-in" style={{ animationDelay: '0.2s' }}>
+            <div className="flex flex-wrap justify-center gap-2 mt-5 mb-6 anim-fade-in" style={{ animationDelay: '0.2s' }}>
               {['Techno', 'Live Music', 'Rooftop', 'Networking', 'Raves'].map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-1.5 rounded-full bg-zinc-900/70 border border-zinc-800 text-zinc-500 text-[12px] font-medium backdrop-blur-sm"
+                  className="px-2.5 py-1 rounded-full bg-zinc-900/70 border border-zinc-800 text-zinc-500 text-[11px] font-medium backdrop-blur-sm"
                 >
                   {tag}
                 </span>
@@ -148,16 +148,16 @@ export default function Landing() {
             </div>
 
             {/* CTA buttons */}
-            <div className="w-full max-w-xs space-y-3 anim-fade-up" style={{ animationDelay: '0.3s' }}>
+            <div className="w-full max-w-[280px] space-y-3 anim-fade-up" style={{ animationDelay: '0.3s' }}>
               <Link
                 href="/auth"
-                className="w-full py-4 rounded-2xl bg-red-600 text-white font-bold text-[16px] tracking-wide flex items-center justify-center shadow-xl shadow-red-900/40 pressable"
+                className="w-full py-3 rounded-2xl bg-red-600 text-white font-bold text-[14px] tracking-wide flex items-center justify-center shadow-xl shadow-red-900/40 pressable"
               >
                 Get Started
               </Link>
               <Link
                 href="/auth?mode=signin"
-                className="w-full py-4 rounded-2xl bg-zinc-900 border border-zinc-700 text-zinc-300 font-semibold text-[15px] flex items-center justify-center pressable"
+                className="w-full py-3 rounded-2xl bg-zinc-900 border border-zinc-700 text-zinc-300 font-semibold text-[13px] flex items-center justify-center pressable"
               >
                 Sign in
               </Link>
@@ -166,7 +166,7 @@ export default function Landing() {
               {showInstallButton && (
                 <button
                   onClick={handleInstallClick}
-                  className="w-full py-3.5 rounded-2xl bg-zinc-900/80 border border-zinc-800 text-zinc-400 font-semibold text-[14px] flex items-center justify-center gap-2 pressable hover:border-zinc-700 transition-colors mt-2"
+                  className="w-full py-2.5 rounded-2xl bg-zinc-900/80 border border-zinc-800 text-zinc-400 font-semibold text-[12px] flex items-center justify-center gap-2 pressable hover:border-zinc-700 transition-colors mt-2"
                 >
                   <DownloadIcon />
                   Add to Home Screen

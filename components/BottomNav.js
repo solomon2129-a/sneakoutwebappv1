@@ -29,7 +29,7 @@ export default function BottomNav() {
             <Link key={href} href={href} className={'liquid-nav-item pressable' + (active ? ' active' : '')}>
               <div className={active ? 'liquid-nav-icon active' : 'liquid-nav-icon'}>
                 <Icon
-                  size={22}
+                  size={18}
                   strokeWidth={active ? 2.4 : 1.8}
                   aria-hidden
                 />

@@ -7,10 +7,10 @@ import { getFirestoreEvents, deleteEventFromFirestore } from '../../lib/tickets'
 
 /* ── Icons ── */
 function BackIcon() {
-  return (<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>);
+  return (<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><polyline points="15 18 9 12 15 6"/></svg>);
 }
 function PlusIcon() {
-  return (<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>);
+  return (<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>);
 }
 function UsersIcon() {
   return (<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>);
@@ -40,11 +40,11 @@ function TrashIcon() {
 /* ── Stat card ── */
 function StatCard({ value, label, icon, accent }) {
   return (
-    <div className="flex-1 bg-zinc-900 rounded-2xl border border-zinc-800 p-4 flex flex-col gap-2">
-      <div className={'w-8 h-8 rounded-xl flex items-center justify-center ' + accent}>
+    <div className="flex-1 bg-zinc-900 rounded-2xl border border-zinc-800 p-3 flex flex-col gap-2">
+      <div className={'w-7 h-7 rounded-lg flex items-center justify-center ' + accent}>
         {icon}
       </div>
-      <p className="text-white font-black text-2xl leading-none">{value}</p>
+      <p className="text-white font-black text-lg leading-none">{value}</p>
       <p className="text-zinc-600 text-[11px] font-medium">{label}</p>
     </div>
   );
@@ -69,7 +69,7 @@ function EventCard({ event, index, onDelete }) {
       style={{ animationDelay: (index * 0.08) + 's' }}
     >
       {/* Cover */}
-      <div className="relative h-40 bg-zinc-800">
+      <div className="relative h-32 bg-zinc-800">
         {event.image ? (
           <img src={event.image} alt={event.title} className="w-full h-full object-cover" />
         ) : (
@@ -97,7 +97,7 @@ function EventCard({ event, index, onDelete }) {
 
         {/* Title overlay */}
         <div className="absolute bottom-3 left-3 right-3">
-          <h3 className="text-white font-extrabold text-[17px] leading-tight mb-1">{event.title}</h3>
+          <h3 className="text-white font-extrabold text-[14px] leading-tight mb-1">{event.title}</h3>
           <div className="flex items-center gap-3 text-zinc-400 text-[12px]">
             <span className="flex items-center gap-1">
               <CalendarIcon /> {event.date}{event.time ? ' · ' + event.time : ''}
@@ -131,7 +131,7 @@ function EventCard({ event, index, onDelete }) {
       <div className="grid grid-cols-2 divide-x divide-zinc-800">
         <Link
           href={'/host/manage/' + event.id}
-          className="flex items-center justify-center gap-1.5 py-3.5 text-red-400 text-[12px] font-semibold pressable hover:bg-zinc-800/60 transition-colors"
+          className="flex items-center justify-center gap-1.5 py-2.5 text-red-400 text-[12px] font-semibold pressable hover:bg-zinc-800/60 transition-colors"
         >
           <EditIcon />
           Manage Event
@@ -139,7 +139,7 @@ function EventCard({ event, index, onDelete }) {
         <button
           onClick={handleDelete}
           disabled={deleting}
-          className={'flex items-center justify-center gap-1.5 py-3.5 text-[12px] font-semibold pressable hover:bg-zinc-800/60 transition-colors disabled:opacity-50 ' + (confirming ? 'text-rose-400' : 'text-zinc-600')}
+          className={'flex items-center justify-center gap-1.5 py-2.5 text-[12px] font-semibold pressable hover:bg-zinc-800/60 transition-colors disabled:opacity-50 ' + (confirming ? 'text-rose-400' : 'text-zinc-600')}
         >
           <TrashIcon />
           {deleting ? '...' : confirming ? 'Sure?' : 'Delete'}
@@ -194,19 +194,19 @@ export default function HostDashboard() {
           {/* Amber glow */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-amber-500/10 rounded-full blur-3xl pointer-events-none -translate-y-1/2 translate-x-1/2" />
 
-          <div className="max-w-lg mx-auto px-4 pt-14 pb-8">
+          <div className="max-w-lg mx-auto px-4 pt-12 pb-6">
             {/* Nav row */}
             <div className="flex items-center gap-3 mb-8">
               <button
                 onClick={() => router.push('/profile')}
-                className="w-9 h-9 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 pressable flex-shrink-0"
+                className="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 pressable flex-shrink-0"
               >
                 <BackIcon />
               </button>
               <div className="flex-1" />
               <Link
                 href="/host/create"
-                className="flex items-center gap-1.5 px-4 py-2 rounded-full bg-red-600 text-white text-[13px] font-bold pressable shadow-lg shadow-red-900/30"
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-red-600 text-white text-[12px] font-bold pressable shadow-lg shadow-red-900/30"
               >
                 <PlusIcon /> New Event
               </Link>
@@ -215,9 +215,9 @@ export default function HostDashboard() {
             {/* Identity */}
             <div className="flex items-center gap-3 mb-1">
               {user.photoURL ? (
-                <img src={user.photoURL} alt={displayName} className="w-12 h-12 rounded-2xl object-cover border border-zinc-700 flex-shrink-0" />
+                <img src={user.photoURL} alt={displayName} className="w-10 h-10 rounded-xl object-cover border border-zinc-700 flex-shrink-0" />
               ) : (
-                <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center text-white font-black text-lg flex-shrink-0">
+                <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center text-white font-black text-sm flex-shrink-0">
                   {displayName.charAt(0).toUpperCase()}
                 </div>
               )}
@@ -227,7 +227,7 @@ export default function HostDashboard() {
                     <StarIcon /> Host
                   </span>
                 </div>
-                <p className="text-white font-extrabold text-xl leading-none">{displayName}</p>
+                <p className="text-white font-extrabold text-[16px] leading-none">{displayName}</p>
               </div>
             </div>
           </div>
@@ -260,7 +260,7 @@ export default function HostDashboard() {
           {/* ── Events list ── */}
           <div>
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-[18px] font-extrabold text-white">Your Events</h2>
+              <h2 className="text-[16px] font-extrabold text-white">Your Events</h2>
               {events.length > 0 && (
                 <span className="text-zinc-600 text-xs font-semibold bg-zinc-900 border border-zinc-800 px-2.5 py-1 rounded-full">
                   {events.length}
@@ -278,8 +278,8 @@ export default function HostDashboard() {
               /* Empty state */
               <div className="flex flex-col items-center justify-center py-16 text-center">
                 <div className="relative mb-6">
-                  <div className="w-24 h-24 rounded-3xl bg-zinc-900 border border-zinc-800 flex items-center justify-center">
-                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-zinc-700" strokeLinecap="round" strokeLinejoin="round">
+                  <div className="w-[72px] h-[72px] rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" className="text-zinc-700" strokeLinecap="round" strokeLinejoin="round">
                       <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
                       <line x1="12" y1="14" x2="12" y2="18"/><line x1="10" y1="16" x2="14" y2="16"/>
                     </svg>
@@ -288,13 +288,13 @@ export default function HostDashboard() {
                   <div className="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-amber-500/20 border border-amber-500/30" />
                   <div className="absolute -bottom-1 -left-1 w-3 h-3 rounded-full bg-red-500/20 border border-red-500/30" />
                 </div>
-                <p className="text-zinc-200 font-bold text-[17px] mb-2">No events yet</p>
+                <p className="text-zinc-200 font-bold text-[15px] mb-2">No events yet</p>
                 <p className="text-zinc-600 text-sm mb-8 max-w-xs">
                   Create your first event and start selling tickets to your audience.
                 </p>
                 <Link
                   href="/host/create"
-                  className="flex items-center gap-2 px-6 py-3.5 rounded-2xl bg-red-600 text-white font-bold text-[14px] pressable shadow-lg shadow-red-900/30"
+                  className="flex items-center gap-2 px-5 py-2.5 rounded-2xl bg-red-600 text-white font-bold text-[12px] pressable shadow-lg shadow-red-900/30"
                 >
                   <PlusIcon /> Create First Event
                 </Link>
