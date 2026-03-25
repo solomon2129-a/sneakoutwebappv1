@@ -117,16 +117,14 @@ export default function Landing() {
           {/* Main hero */}
           <div className="flex-1 flex flex-col items-center justify-center text-center -mt-8">
             {/* Logo mark */}
-            <div className="mb-4 anim-fade-pop">
-              <div className="w-11 h-11 rounded-xl bg-red-600 flex items-center justify-center text-white text-xl font-black shadow-2xl shadow-red-900/50 mx-auto mb-3">
-                S
-              </div>
+            <div className="mb-3 anim-fade-pop">
+              <img src="/logo.png" alt="Sneakout" className="w-10 h-10 object-contain mx-auto mb-3" />
             </div>
 
             <div className="anim-fade-up">
-              <h1 className="text-[36px] font-black text-white leading-none tracking-tighter mb-2">
-                Sneak<span className="text-red-500">out</span>
-              </h1>
+              <div className="mb-2 flex justify-center">
+                <img src="/wordmark.png" alt="Sneakout" className="h-7 object-contain" />
+              </div>
               <p className="text-zinc-300 text-[15px] font-medium leading-snug mb-1">
                 Find your night out.
               </p>

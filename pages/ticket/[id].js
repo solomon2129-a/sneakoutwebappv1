@@ -162,7 +162,7 @@ export default function TicketPage() {
                 <div className="absolute inset-0 bg-gradient-to-b from-black/20 to-black/80" />
 
                 <div className="absolute top-4 left-4 flex items-center gap-1.5">
-                  <div className="w-5 h-5 rounded-md bg-red-600 flex items-center justify-center text-white text-[10px] font-black">S</div>
+                  <img src="/logo.png" alt="S" className="w-5 h-5 object-contain" />
                   <span className="text-white font-bold text-[11px] tracking-wide">SNEAKOUT</span>
                 </div>
 

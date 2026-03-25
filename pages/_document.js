@@ -13,8 +13,8 @@ export default function Document() {
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="Sneakout" />
-        <link rel="apple-touch-icon" href="/icons/icon.svg" />
-        <link rel="apple-touch-startup-image" href="/icons/icon.svg" />
+        <link rel="apple-touch-icon" href="/logo-icon.png" />
+        <link rel="apple-touch-startup-image" href="/logo-icon.png" />
 
         {/* ── Misc ── */}
         <meta name="mobile-web-app-capable" content="yes" />
@@ -22,7 +22,7 @@ export default function Document() {
         <meta name="msapplication-TileColor" content="#09090B" />
 
         {/* ── Icons ── */}
-        <link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/logo-icon.png" type="image/png" />
 
         {/* ── Razorpay ── */}
         <script src="https://checkout.razorpay.com/v1/checkout.js" />

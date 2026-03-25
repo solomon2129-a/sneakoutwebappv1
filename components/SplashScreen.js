@@ -26,18 +26,14 @@ export default function SplashScreen({ onDone }) {
       {/* Main content — centered vertically */}
       <div className="flex-1 flex flex-col items-center justify-center relative z-10">
         {/* Logo icon */}
-        <div className="splash-logo-pop mb-4">
-          <div className="w-14 h-14 rounded-[16px] bg-red-600 flex items-center justify-center shadow-2xl shadow-red-900/50"
-            style={{ boxShadow: '0 0 60px rgba(220,38,38,0.3), 0 25px 50px rgba(220,38,38,0.2)' }}
-          >
-            <span className="text-white text-[24px] font-black leading-none" style={{ fontFamily: "'Inter', sans-serif" }}>S</span>
-          </div>
+        <div className="splash-logo-pop mb-5">
+          <img src="/logo.png" alt="Sneakout" className="w-12 h-12 object-contain" />
         </div>
 
         {/* Wordmark */}
-        <h1 className="splash-text-up text-[30px] font-black text-white tracking-tight leading-none mb-2">
-          Sneak<span className="text-red-500">out</span>
-        </h1>
+        <div className="splash-text-up mb-2">
+          <img src="/wordmark.png" alt="Sneakout" className="h-6 object-contain" />
+        </div>
 
         {/* Tagline */}
         <p className="splash-tagline text-zinc-500 text-[12px] font-medium tracking-wide">
