@@ -102,7 +102,7 @@ export default function Discover() {
           <div className="flex items-start justify-between mb-4">
             <div>
               <p className="text-zinc-500 text-sm font-medium mb-1">Bangalore · This Week</p>
-              <img src="/wordmark.png" alt="Sneakout" className="h-5 object-contain" />
+              <img src="/wordmark.png" alt="Sneakout" className="h-6 object-contain" />
             </div>
             <div className="flex items-center gap-2 mt-1">
               <button className="w-8 h-8 rounded-full bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-400 pressable">

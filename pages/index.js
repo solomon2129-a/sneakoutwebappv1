@@ -118,12 +118,12 @@ export default function Landing() {
           <div className="flex-1 flex flex-col items-center justify-center text-center -mt-8">
             {/* Logo mark */}
             <div className="mb-3 anim-fade-pop">
-              <img src="/logo.png" alt="Sneakout" className="w-10 h-10 object-contain mx-auto mb-3" />
+              <img src="/logo.png" alt="Sneakout" className="w-14 h-14 object-contain mx-auto mb-3" />
             </div>
 
             <div className="anim-fade-up">
               <div className="mb-2 flex justify-center">
-                <img src="/wordmark.png" alt="Sneakout" className="h-7 object-contain" />
+                <img src="/wordmark.png" alt="Sneakout" className="h-9 object-contain" />
               </div>
               <p className="text-zinc-300 text-[15px] font-medium leading-snug mb-1">
                 Find your night out.

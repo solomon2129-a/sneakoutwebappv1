@@ -27,12 +27,12 @@ export default function SplashScreen({ onDone }) {
       <div className="flex-1 flex flex-col items-center justify-center relative z-10">
         {/* Logo icon */}
         <div className="splash-logo-pop mb-5">
-          <img src="/logo.png" alt="Sneakout" className="w-12 h-12 object-contain" />
+          <img src="/logo.png" alt="Sneakout" className="w-16 h-16 object-contain" />
         </div>
 
         {/* Wordmark */}
         <div className="splash-text-up mb-2">
-          <img src="/wordmark.png" alt="Sneakout" className="h-6 object-contain" />
+          <img src="/wordmark.png" alt="Sneakout" className="h-8 object-contain" />
         </div>
 
         {/* Tagline */}
